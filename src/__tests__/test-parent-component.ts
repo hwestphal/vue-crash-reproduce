@@ -1,23 +1,17 @@
 import ParentComponent from "../parent-component.vue";
+import SomeComponent from "../some-component.vue";
 import { createLocalVue, mount } from "@vue/test-utils";
-import Vue from "vue";
-import Vuex from "vuex";
 
 // This unit test is failing.
 test("parent component", () => {
     const localVue = createLocalVue();
-    localVue.use(Vuex);
-    const store = new Vuex.Store({
-        modules: {
-            myModule: {
-                // In order to reproduce the error with `getters` of `undefined`, remove this line:
-                namespaced: true,
-                getters: {
-                    getContent() { return "Some value"; }
-                },
-            }
-        }
+    localVue.mixin({
+        beforeCreate() {
+            (this as any).$content = "some value";
+        },
     });
-    const wrapper = mount(ParentComponent, { localVue, store });
+    const wrapper = mount(ParentComponent, { localVue });
+    expect((wrapper.vm as any).$content).not.toBeUndefined();
+    expect((wrapper.find(SomeComponent).vm as any).$content).not.toBeUndefined();
     expect(wrapper.element).toMatchSnapshot();
 });

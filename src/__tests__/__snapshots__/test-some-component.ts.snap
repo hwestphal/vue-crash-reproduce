@@ -3,7 +3,7 @@
 exports[`some component 1`] = `
 <div>
   <p>
-    Some value
+    SOME VALUE
   </p>
 </div>
 `;

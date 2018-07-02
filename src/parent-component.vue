@@ -9,8 +9,8 @@ import SomeComponent from "./some-component.vue";
 import Vue from "vue";
 
 export default Vue.extend({
-    components: {
-        SomeComponent,
-    },
+  components: {
+    SomeComponent
+  }
 });
 </script>
