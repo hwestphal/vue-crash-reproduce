@@ -11,7 +11,5 @@ test("parent component", () => {
         },
     });
     const wrapper = mount(ParentComponent, { localVue });
-    expect((wrapper.vm as any).$content).not.toBeUndefined();
-    expect((wrapper.find(SomeComponent).vm as any).$content).not.toBeUndefined();
     expect(wrapper.element).toMatchSnapshot();
 });
