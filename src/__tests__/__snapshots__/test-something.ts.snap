@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a test 1`] = `
+<div>
+  <p>
+    
+  </p>
+   
+  <p>
+    original value
+  </p>
+   
+  <button />
+</div>
+`;

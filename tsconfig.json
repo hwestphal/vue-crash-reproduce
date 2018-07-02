@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "outDir": "./target/ts",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": false,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true, // allow to use untyped scripts (*.js files)
+    "experimentalDecorators": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noEmitOnError": false,
+    "target": "es5",
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*",
+    "./test/**/*"
+  ]
+}
