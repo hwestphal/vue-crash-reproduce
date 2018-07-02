@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`some component 1`] = `
+<div>
+  <p>
+    Some value
+  </p>
+</div>
+`;

@@ -4,18 +4,17 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const myModule = {
+    // In order to reproduce the error with `getters` of `undefined`, remove this line:
     namespaced: true,
     state: {
-        content: "",
+        content: "Some value",
     },
     getters: {
-        getContent(state: any): string {
+        getContent(state: any) {
             return state.content;
         }
     },
 };
-
-export type GetContent = () => string
 
 export default new Vuex.Store({
     modules: {

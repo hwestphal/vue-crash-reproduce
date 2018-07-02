@@ -3,24 +3,21 @@ import { createLocalVue, mount } from "@vue/test-utils";
 import Vue from "vue";
 import Vuex from "vuex";
 
-test("a test", () => {
+// This unit test is failing.
+test("parent component", () => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
-    const storeMock = {
-        state: { content: "" },
-        namespaced: true,
-        getters: {
-            getContent: jest.fn()
-        },
-    };
-
     const store = new Vuex.Store({
         modules: {
-            myModule: storeMock
+            myModule: {
+                // In order to reproduce the error with `getters` of `undefined`, remove this line:
+                namespaced: true,
+                getters: {
+                    getContent() { return "Some value"; }
+                },
+            }
         }
     });
-
     const wrapper = mount(ParentComponent, { localVue, store });
-    wrapper.find("a").trigger("click");
     expect(wrapper.element).toMatchSnapshot();
 });
